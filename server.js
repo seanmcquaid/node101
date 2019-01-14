@@ -10,6 +10,7 @@ const http = require("http");
 
 const server = http.createServer((req,res)=>{
     console.log("someone hit our http server");
+    res.end("<h1>I went to Monday Night Garage</h1>")
 });
 
 server.listen(3000);
