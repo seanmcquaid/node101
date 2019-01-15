@@ -14,10 +14,18 @@ const server = http.createServer((req,res)=>{
         res.end(homePageHTML);
     } else if (req.url === "/scripts.js"){
         res.writeHead(200,{"content-type": "text/javascript"});
-        const scriptFile = fs.readFileSync("/scripts.js");
+        const scriptFile = fs.readFileSync("scripts.js");
         res.end(scriptFile);
+    } else if (req.url === "/styles.css"){
+        res.writeHead(200,{"content-type": "text/css"});
+        const stylesFile = fs.readFileSync("styles.css");
+        res.end(stylesFile);
+    } else if (req.url.indexOf("monster")){
+        res.writeHead(200,{"context-type": "image/png"})
+        const imageFile = fs.readFileSynch()
+        res.end(imageFile)
     } else{
-        res.writeHead(404, {"content-type": "text/html"});
+        res.writeHead(404, {"content-type": "text/plain"});
         res.end("This page does not work")
     }
 });
